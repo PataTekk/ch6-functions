@@ -4,21 +4,35 @@
 # returns whether or not (e.g., a boolean) the length of one argument is greater
 # than or equal to twice the length of the other.
 # Hint: compare the length difference to the length of the smaller string
-
+is_twice_as_long <- function(a, b) {
+  nchar(a) * 2 == nchar(b) || nchar(b) * 2 == nchar(a)
+}
 
 # Call your `is_twice_as_long` function by passing it different length strings
 # to confirm that it works. Make sure to check when _either_ argument is twice
 # as long, as well as when neither are!
-
-
+is_twice_as_long("hi", "hire")
+is_twice_as_long("hire", "hi")
+is_twice_as_long("hi", "hello")
 
 # Define a function `describe_difference` that takes in two strings. The
 # function should return one of the following sentences as appropriate
 #   "Your first string is longer by N characters"
 #   "Your second string is longer by N characters"
 #   "Your strings are the same length!"
-
+describe_difference <- function(a, b) {
+  result <- nchar(a) - nchar(b)
+  if (result > 0) {
+    paste("Your first string is longer by", result, "characters")
+  } else if (result < 0) {
+    paste("your second string is longer by", result * -1, "characters")
+  } else {
+    "Your strings are the same length"
+  }
+}
 
 # Call your `describe_difference` function by passing it different length strings
 # to confirm that it works. Make sure to check all 3 conditions1
-
+describe_difference("hahahaha", "hi")
+describe_difference("hi", "hahahaha")
+describe_difference("hi", "hi")
